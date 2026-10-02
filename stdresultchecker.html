@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Result Checker</h1>
+        <p class="subtitle">Enter the student's information</p>
+
+        <div class="form-group">
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" placeholder="Enter student name">
+        </div>
+
+        <div class="form-group">
+            <label for="studentScore">Score</label>
+            <input type="number" id="studentScore" placeholder="Enter score">
+        </div>
+
+        <button id="checkResult">Check Result</button>
+
+        <div id="result" class="result hidden">
+            <h2 id="resultName"></h2>
+            <p id="resultGrade"></p>
+            <p id="resultStatus"></p>
+        </div>
+
+    </div>
+    <script>
+document.getElementById("studentName");
+document.getElementById("studentScore");
+document.getElementById("checkResult");
+document.getElementById("result");
+document.getElementById("resultName");
+document.getElementById("resultGrade");
+document.getElementById("resultStatus");
+
+ const studentName = document.getElementById("studentName");
+ const studentScore = document.getElementById("studentScore");
+ const checkResult = document.getElementById("checkResult");
+const result = document.getElementById("result");
+const resultName = document.getElementById("resultName");
+const resultGrade = document.getElementById ("resultGrade");
+    
+  const resultStatus = document.getElementById("resultStatus"); 
+   
+   checkResult.addEventListener("click",  function(){
+
+   const studentNameValue = studentName.value;
+   const studentScoreValue =  Number(studentScore.value);
+     resultName.textContent = studentNameValue;
+
+let grade;
+
+if (studentScoreValue >= 90 && studentScoreValue <= 100) {
+    grade = "A";
+}
+else if (studentScoreValue >= 80 && studentScoreValue <= 89) {
+    grade = "B";
+}
+else if (studentScoreValue >= 70 && studentScoreValue <= 79) {
+    grade = "C";
+}
+else if (studentScoreValue >= 60 && studentScoreValue <= 69) {
+    grade = "D";
+}
+else if (studentScoreValue >= 0 && studentScoreValue <= 59) {
+    grade = "F";
+}
+else {
+    grade = "Invalid grade";
+}
+
+resultGrade.textContent = `Grade: ${grade}`;
+result.classList.remove("hidden");
+
+
+
+
+   })
+   
+   
+   </script>
+
+    
+</body>
+</html>
